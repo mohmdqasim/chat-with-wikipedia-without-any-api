@@ -25,20 +25,7 @@ def stream_data(query):
         yield word + " "
         time.sleep(0.02)
 
-# Streamed response emulator
-def response_generator():
-    response = random.choice(
-        [
-            "Hello there! How can I assist you today?",
-            "Hi, human! Is there anything I can help you with?",
-            "Do you need help?",
-        ]
-    )
-    for word in response.split():
-        yield word + " "
-        time.sleep(0.05)
-
-st.title("Simple chat")
+st.title("Ask from Wikipedia")
 
 # Initialize chat history
 if "messages" not in st.session_state:
