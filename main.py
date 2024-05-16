@@ -25,7 +25,7 @@ def stream_data(query):
         yield word + " "
         time.sleep(0.02)
 
-st.title("Ask from Wikipedia")
+st.title("Ask from Wikipedia!!")
 with st.sidebar:
     st.write("Code Link")
     st.markdown("[![Github](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/mohmdqasim/chat-with-wikipedia-without-any-api)")
