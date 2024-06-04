@@ -26,7 +26,7 @@ def stream_data(query):
         time.sleep(0.02)
 
 st.title("Ask from Wikipedia!!")
-website = st.input("Enter your website Here")
+website = st.text_input("Enter your website Here")
 if website:
     with st.sidebar:
         st.write("Code Link")
