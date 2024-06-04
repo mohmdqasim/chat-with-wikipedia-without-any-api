@@ -26,28 +26,30 @@ def stream_data(query):
         time.sleep(0.02)
 
 st.title("Ask from Wikipedia!!")
-with st.sidebar:
-    st.write("Code Link")
-    st.markdown("[![Github](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/mohmdqasim/chat-with-wikipedia-without-any-api)")
-    st.markdown("<br>",unsafe_allow_html=True)
-# Initialize chat history
-if "messages" not in st.session_state:
-    st.session_state.messages = []
-
-# Display chat messages from history on app rerun
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
-
-# Accept user input
-if prompt := st.chat_input("What is up?"):
-    # Display user message in chat message container
-    with st.chat_message("user"):
-        st.markdown(prompt)
-    # Add user message to chat history
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    # Display assistant response in chat message container
-    with st.chat_message("assistant"):
-        response = st.write_stream(stream_data(prompt))
-    # Add assistant response to chat history
-    st.session_state.messages.append({"role": "assistant", "content": response})
+website = st.input("Enter your website Here")
+if website:
+    with st.sidebar:
+        st.write("Code Link")
+        st.markdown("[![Github](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/mohmdqasim/chat-with-wikipedia-without-any-api)")
+        st.markdown("<br>",unsafe_allow_html=True)
+    # Initialize chat history
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+    
+    # Display chat messages from history on app rerun
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+    
+    # Accept user input
+    if prompt := st.chat_input("What is up?"):
+        # Display user message in chat message container
+        with st.chat_message("user"):
+            st.markdown(prompt)
+        # Add user message to chat history
+        st.session_state.messages.append({"role": "user", "content": prompt})
+        # Display assistant response in chat message container
+        with st.chat_message("assistant"):
+            response = st.write_stream(stream_data(prompt))
+        # Add assistant response to chat history
+        st.session_state.messages.append({"role": "assistant", "content": response})
